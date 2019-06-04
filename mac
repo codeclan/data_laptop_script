@@ -133,6 +133,12 @@ fi
 # Create data directory for MongoDB
 # create_folder_if_not_there "/data/db"
 
+fancy_echo "Downloading the R language"
+curl -0 'https://cran.r-project.org/bin/macosx/R-3.6.0.pkg' > ./r_lang.pkg
+
+fancy_echo "Installing the R language"
+sudo installer -pkg r_lang.pkg -target /
+
 fancy_echo "Updating Homebrew formulae ..."
 brew update
 brew bundle --file=- <<EOF
@@ -144,19 +150,8 @@ brew "git"
 brew "zsh"
 brew "tree"
 
-# Programming languages
-# brew "node"
-# brew "rbenv"
-# brew "ruby-build"
-
-# Fix for forcing java8 install
-# tap "adoptopenjdk/openjdk"
-# cask "adoptopenjdk/openjdk/adoptopenjdk8"
-
 # Databases
 brew "postgres", restart_service: true
-# brew "mongodb"
-# cask "mongodb-compass-community"
 
 # Fonts
 cask "font-opendyslexic"
@@ -180,6 +175,25 @@ install_gui_app "slack" "slack"
 
 # Insomnia
 install_gui_app "insomnia" "insomnia"
+
+# MacDown
+install_gui_app "macdown" "macdown"
+
+# Postico
+install_gui_app "postico" "postico"
+
+# Github Desktop
+install_gui_app "github desktop" "github"
+
+# MacTex
+install_gui_app "mactex" "maxtex"
+
+# RStudio
+install_gui_app "rstudio" "rstudio"
+
+# Anaconda
+install_gui_app "anaconda" "anaconda"
+export PATH="/usr/local/anaconda3/bin:$PATH"
 
 # fancy_echo "Configuring Ruby ..."
 # find_latest_ruby() {
