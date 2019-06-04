@@ -59,13 +59,9 @@ log_version_info() {
 CLI_APPS=(
   "git"
   "zsh"
-  "node"
-  "rbenv"
-  "ruby-build"
   "postgres"
-  "java"
-  "mongod"
   "tree"
+  "R"
 )
 
 for cli_app_name in "${CLI_APPS[@]}"
@@ -94,8 +90,12 @@ GUI_APPS=(
   "atom"
   "slack"
   "insomnia"
-  "intellij idea ce"
-  "mongodb compass community"
+  "macdown"
+  "postico"
+  "github desktop"
+  "mactex"
+  "rstudio"
+  "anaconda"
 )
 
 for gui_app_name in "${GUI_APPS[@]}"
