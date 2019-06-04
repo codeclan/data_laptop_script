@@ -186,7 +186,7 @@ install_gui_app "postico" "postico"
 install_gui_app "github desktop" "github"
 
 # MacTex
-install_gui_app "mactex" "maxtex"
+install_gui_app "mactex" "mactex"
 
 # RStudio
 install_gui_app "rstudio" "rstudio"
