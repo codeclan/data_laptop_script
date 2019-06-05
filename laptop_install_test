@@ -93,9 +93,9 @@ GUI_APPS=(
   "macdown"
   "postico"
   "github desktop"
-  "mactex"
+  "latexit"
   "rstudio"
-  "anaconda"
+  "anaconda-navigator"
 )
 
 for gui_app_name in "${GUI_APPS[@]}"
@@ -108,3 +108,14 @@ do
     log_install_success "$gui_app_name"
   fi
 done
+
+which_python=$(which python)
+if [ $which_python != '/usr/local/anaconda3/bin/python' ]
+then
+  message="🚫 Python path is not correct"
+  echo "$message" 1>&2
+  echo "$message" >> "$HOME/$log_filename"
+else
+  echo "✅ Python path is correct."
+  echo "✅ Python" >> "$HOME/$log_filename"
+fi

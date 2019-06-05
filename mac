@@ -193,7 +193,8 @@ install_gui_app "rstudio" "rstudio"
 
 # Anaconda
 install_gui_app "anaconda" "anaconda"
-export PATH="/usr/local/anaconda3/bin:$PATH"
+echo 'export PATH="/usr/local/anaconda3/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
 
 # fancy_echo "Configuring Ruby ..."
 # find_latest_ruby() {
@@ -257,7 +258,7 @@ createuser "postgres"
 
 fancy_echo "Checking for unsuccessful installs"
 
-curl --remote-name "https://raw.githubusercontent.com/codeclan/laptop/master/laptop_install_test"
+curl --remote-name "https://raw.githubusercontent.com/harrisonbooth/data_course_laptop/master/laptop_install_test"
 sh laptop_install_test
 
 fancy_echo "⚠️ Script has finished - please scroll the lines above and bring any errors to an instructor's attention during Meet Your Cohort ⚠️"
