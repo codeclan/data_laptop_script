@@ -93,7 +93,6 @@ GUI_APPS=(
   "macdown"
   "postico"
   "github desktop"
-  "latexit"
   "rstudio"
   "anaconda-navigator"
 )
