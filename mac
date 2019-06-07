@@ -139,6 +139,9 @@ curl -0 'https://cran.r-project.org/bin/macosx/R-3.6.0.pkg' > ./r_lang.pkg
 fancy_echo "Installing the R language"
 sudo installer -pkg r_lang.pkg -target /
 
+# Set permissions for installing from `brew bundle`
+sudo chown -R $(whoami) /usr/local/lib/pkgconfig /usr/local/share/info /use/local/share/man/man3 /use/local/share/man/man5
+
 fancy_echo "Updating Homebrew formulae ..."
 brew update
 brew bundle --file=- <<EOF
