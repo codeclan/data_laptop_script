@@ -139,6 +139,17 @@ curl -0 'https://cran.r-project.org/bin/macosx/R-3.6.0.pkg' > ./r_lang.pkg
 fancy_echo "Installing the R language"
 sudo installer -pkg r_lang.pkg -target /
 
+brew tap adoptopenjdk/openjdk
+brew cask install adoptopenjdk/openjdk/adoptopenjdk11
+brew install jenv
+
+echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(jenv init -)"' >> ~/.zshrc
+
+jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home
+jenv versions
+R CMD javareconf
+
 # Set permissions for installing from `brew bundle`
 sudo chown -R $(whoami) /usr/local/lib/pkgconfig /usr/local/share/info /use/local/share/man/man3 /use/local/share/man/man5
 
