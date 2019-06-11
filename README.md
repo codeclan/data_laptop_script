@@ -16,7 +16,7 @@ Older versions may work but aren't tested.
 Download and review the script:
 
 ```sh
-curl --remote-name https://raw.githubusercontent.com/harrisonbooth/data_course_laptop/master/mac
+curl --remote-name https://raw.githubusercontent.com/codeclan/data_laptop_script/master/mac
 ```
 
 Then run it and start the installation:
@@ -32,7 +32,7 @@ At the end of the installation script, another script will run to attempt to che
 You can repeat this by running the following lines in terminal:
 
 ```sh
-curl --remote-name https://raw.githubusercontent.com/harrison/data_course_laptop/master/laptop_install_test
+curl --remote-name https://raw.githubusercontent.com/codeclan/data_laptop_script/master/laptop_install_test
 sh laptop_install_test
 ```
 ## About CodeClan

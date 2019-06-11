@@ -269,7 +269,7 @@ createuser "postgres"
 
 fancy_echo "Checking for unsuccessful installs"
 
-curl --remote-name "https://raw.githubusercontent.com/harrisonbooth/data_course_laptop/master/laptop_install_test"
+curl --remote-name "https://raw.githubusercontent.com/codeclan/data_laptop_script/master/laptop_install_test"
 sh laptop_install_test
 
 fancy_echo "⚠️ Script has finished - please scroll the lines above and bring any errors to an instructor's attention during Meet Your Cohort ⚠️"
