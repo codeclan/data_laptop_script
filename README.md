@@ -1,6 +1,6 @@
 # CodeClan Data Course Laptop Setup
 
-A script to set up a macOS laptop for development.
+A script to set up a macOS laptop for the CodeClan Data Course.
 
 ## Requirements
 
@@ -8,6 +8,7 @@ We support:
 
 * macOS Sierra (10.12)
 * macOS High Sierra (10.13)
+* macOS Mojave (10.14)
 
 Older versions may work but aren't tested.
 
@@ -37,12 +38,8 @@ sh laptop_install_test
 ```
 ## About CodeClan
 
-CodeClan offers a range of software development courses to help kick start your career in tech and deepen your digital expertise.
-
-Transform your career at CodeClan by learning to code in our 16 week software development course. You don’t need to be a mathematician or have any previous technical experience. All you need is a willingness to learn, a passion for technology and to think like a problem solver.
-
-Through our part-time learning options, you can add coding skills to your CV or build on your existing programming knowledge.
+CodeClan is Scotland’s first and only accredited digital skills academy. Established in 2015, we’re here to bridge the digital skills gap in Scotland. With campuses in Glasgow, Edinburgh and Inverness, we provide a route into exciting careers and a pipeline of digital talent for employers. We run immersive courses in Professional Software Development, Data Analysis and Full-Stack Web Development and a number of upskilling courses in transformative skillsets like UX, Agile, R Programming and Python.
 
 See [our website](https://codeclan.com) for more information.
 
-![CodeClan](https://codeclan.com/wp-content/uploads/2016/03/favicon.png)
+![CodeClan](https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F56806727%2F149431978582%2F1%2Foriginal.jpg?h=230&w=460&auto=compress&rect=280%2C0%2C3334%2C1667&s=a95483fb7100d4b2a4213b2c326c2861)
