@@ -42,4 +42,4 @@ CodeClan is Scotland’s first and only accredited digital skills academy. Estab
 
 See [our website](https://codeclan.com) for more information.
 
-![CodeClan](https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F56806727%2F149431978582%2F1%2Foriginal.jpg?h=230&w=460&auto=compress&rect=280%2C0%2C3334%2C1667&s=a95483fb7100d4b2a4213b2c326c2861)
+![CodeClan](https://codeclan.com/wp-content/uploads/2019/06/Logo-Side.png)
