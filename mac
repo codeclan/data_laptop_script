@@ -181,6 +181,9 @@ fancy_echo "Installing GUI apps"
 # Web browsing
 install_gui_app "google chrome" "google-chrome"
 
+# Navicat Data Modeler Essentials
+install_gui_app "navicat data modeler essentials" "navicat-data-modeler-essentials"
+
 # Text editing
 install_gui_app "atom" "atom"
 
