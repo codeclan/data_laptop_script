@@ -173,6 +173,7 @@ tap "caskroom/fonts"
 brew "git"
 brew "zsh"
 brew "tree"
+brew "node"
 
 # Databases
 brew "postgres", restart_service: true
