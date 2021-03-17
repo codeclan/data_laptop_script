@@ -60,7 +60,6 @@ CLI_APPS=(
   "git"
   "zsh"
   "postgres"
-  "tree"
   "node"
 )
 
@@ -92,7 +91,6 @@ GUI_APPS=(
   "slack"
   "insomnia"
   "macdown"
-  "postico"
   "github desktop"
   "rstudio"
   "anaconda-navigator"

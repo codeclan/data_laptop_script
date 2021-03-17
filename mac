@@ -140,8 +140,6 @@ if brew list | grep -Fq brew-cask; then
   brew uninstall --force brew-cask
 fi
 
-# Create data directory for MongoDB
-# create_folder_if_not_there "/data/db"
 
 fancy_echo "Downloading the R language"
 curl -0 'https://cran.r-project.org/bin/macosx/R-3.6.0.pkg' > ./r_lang.pkg
@@ -172,7 +170,6 @@ tap "caskroom/fonts"
 # Unix
 brew "git"
 brew "zsh"
-brew "tree"
 brew "node"
 
 # Databases
@@ -207,9 +204,6 @@ install_gui_app "insomnia" "insomnia"
 # MacDown
 install_gui_app "macdown" "macdown"
 
-# Postico
-install_gui_app "postico" "postico"
-
 # Github Desktop
 install_gui_app "github desktop" "github"
 
@@ -221,30 +215,6 @@ install_gui_app "anaconda" "anaconda"
 echo 'export PATH="/usr/local/anaconda3/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 
-# fancy_echo "Configuring Ruby ..."
-# find_latest_ruby() {
-#   rbenv install -l | grep -v - | tail -1 | sed -e 's/^ *//'
-# }
-
-# ruby_version="2.4.1"
-# shellcheck disable=SC2016
-# append_to_zshrc 'eval "$(rbenv init - --no-rehash)"' 1
-# eval "$(rbenv init -)"
-
-# if ! rbenv versions | grep -Fq "$ruby_version"; then
-#   RUBY_CONFIGURE_OPTS=--with-openssl-dir=/usr/local/opt/openssl rbenv install -s "$ruby_version"
-# fi
-
-# rbenv global "$ruby_version"
-# rbenv shell "$ruby_version"
-# gem update --system
-# gem_install_or_update 'bundler'
-# number_of_cores=$(sysctl -n hw.ncpu)
-# bundle config --global jobs $((number_of_cores - 1))
-# rbenv rehash
-
-# fancy_echo "Skipping rdoc generation when we install a gem"
-# echo 'gem: --no-rdoc --no-ri' >> ~/.gemrc
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
@@ -271,15 +241,14 @@ fancy_echo "Globally ignoring .DS_Store files"
 echo .DS_Store >> ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 
+fancy_echo "Setting default Git branch"
+git config --global init.defaultBranch main
+
 fancy_echo "Creating Postgres database under current user name"
 if ! psql -lqt | cut -d \| -f 1 | grep -qw "$(whoami)" >/dev/null; then
   createdb "$(whoami)"
 fi
 createuser "postgres"
-
-# IntelliJ
-# fancy_echo "Installing IntelliJ"
-# install_gui_app "intellij idea ce" "intellij-idea-ce"
 
 fancy_echo "Checking for unsuccessful installs"
 
