@@ -1,8 +1,24 @@
-﻿# Install Chocolatey
+﻿Write-Host @"
+
+-----------------------------------------------------------------------------
+
+You're running the CodeClan Data Analysis setup script for Windows laptops.
+If that isn't what you meant to do press ctrl + c to stop the script.
+
+This script will install the necessary software for the course using the chocolatey package manager.
+If you have any of these programs installed already they will be updated to the latest version.
+If you already have the latest version of a program the script will skip it with a warning message.
+
+-----------------------------------------------------------------------------
+
+"@
+
+
+# Install Chocolatey
 
 Write-Output "Installing Chocolatey Package Manager..."
 
-#Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 
 
@@ -102,10 +118,5 @@ Write-Output "Adding Java to PATH"
 
 refreshenv
 
-# Set git default branch
-
-Write-Output "Setting default Git branch to main"
-
-git config --global init.defaultBranch main
 
 # Run final installation check 
