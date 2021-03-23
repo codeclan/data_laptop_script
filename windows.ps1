@@ -42,7 +42,7 @@ function Install-FromChocolately {
 
 # Load list of apps to be installed
 
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/codeclan/data_laptop_script/windows_updates/applications.ps1" -OutFile "codeclan_applications.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/codeclan/data_laptop_script/master/applications.ps1" -OutFile "codeclan_applications.ps1"
 . .\codeclan_applications.ps1
 
 
@@ -75,6 +75,18 @@ refreshenv
 
 Write-Output "Checking installations..."
 
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/codeclan/data_laptop_script/windows_updates/laptop_install_test_windows.ps1" -OutFile "codeclan_installation_test.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/codeclan/data_laptop_script/master/laptop_install_test_windows.ps1" -OutFile "codeclan_installation_test.ps1"
 
 .\codeclan_installation_test.ps1
+
+Write-Host @"
+
+-----------------------------------------------------------------------------
+
+Script complete! Please flag any errors to your instructors at the Meet Your Cohort event.
+
+Your Powershell session needs to be restarted before using the CLI tools installed.
+
+-----------------------------------------------------------------------------
+
+"@
