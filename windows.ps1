@@ -40,58 +40,10 @@ function Install-FromChocolately {
 
 
 
-# Apps to be installed
+# Load list of apps to be installed
 
-$installationList = @(
-    @{
-        Name = "Chrome"
-        PackageName = "googlechrome"
-    },
-    @{
-        Name = "Slack"
-        PackageName = "slack"
-    },
-    @{
-        Name = "Zoom"
-        PackageName = "zoom"
-    },
-    @{
-        Name = "Git"
-        PackageName = "git"
-    },
-    @{
-        Name = "Github Desktop"
-        PackageName = "github-desktop"
-    },
-    @{
-        Name = "RStudio"
-        PackageName = "r.studio"
-    },
-    @{
-        Name = "DBeaver"
-        PackageName = "dbeaver"
-    },
-    @{
-        Name = "Insomnia"
-        PackageName = "insomnia-rest-api-client"
-    },
-    @{
-        Name = "Atom"
-        PackageName = "atom"
-    },
-    @{
-        Name = "Anaconda"
-        PackageName = "anaconda3"
-    },
-    @{
-        Name = "Markdown Edit"
-        PackageName = "markdown-edit"
-    },
-    @{
-        Name = "Java8"
-        PackageName = "jdk8"
-    }
-)
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/codeclan/data_laptop_script/windows_updates/applications.ps1" -OutFile "codeclan_applications.ps1"
+. .\codeclan_applications.ps1
 
 
 # R installation - needs specific version
@@ -120,3 +72,9 @@ refreshenv
 
 
 # Run final installation check 
+
+Write-Output "Checking installations..."
+
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/codeclan/data_laptop_script/windows_updates/laptop_install_test_windows.ps1" -OutFile "codeclan_installation_test.ps1"
+
+.\codeclan_installation_test.ps1
