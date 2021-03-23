@@ -4,7 +4,7 @@ A script to set up a laptop for the CodeClan Data Analysis Course.
 
 ## Requirements
 
-There are versions of this script for both MacOS and Windows. Please ensure you have updated your operating system to the most recent version before attempting to run them: 
+There are versions of this script for both MacOS and Windows. Please ensure you have updated your operating system to the most recent version before attempting to run them:
 
 * MacOS Big Sur (11.2)
 * Windows 10 (20H2)
@@ -27,7 +27,7 @@ sh mac 2>&1 | tee ~/laptop.log
 
 You will need to enter your computer password a few times throughout the script to allow installations.
 
-At the end of the installation script, another script will run to attempt to check if any applications failed to install. (occasionally may claim some application are missing that aren't)
+At the end of the installation script, another script will run to check if any applications failed to install (occasionally may claim some application are missing that aren't).
 
 You can repeat this by running the following lines in terminal:
 
@@ -36,7 +36,7 @@ curl --remote-name https://raw.githubusercontent.com/codeclan/data_laptop_script
 sh laptop_install_test
 ```
 
---- 
+---
 > Please follow instructions at the provided [link](apple_silicon.md) if you see -
 
 
@@ -62,6 +62,17 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/codeclan/data_laptop_s
 ```
 
 This will navigate to your `Downloads` folder, temporarily allow Powershell to run external scripts, then download and run this script.
+
+At the end of the installation script, another script will run to check if any applications failed to install. You can repeat this by running the following lines in terminal:
+
+```sh
+# This line will re-download the script - ensure you download it to the same folder as the setup script
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/codeclan/data_laptop_script/master/laptop_install_test -OutFile '.\codeclan_installation_test.ps1'
+# This line will re-run it. You can skip to this step if the script is already downloaded 
+.\codeclan_installation_test
+```
+
+Note that the second script **will not run** without first running the setup script.
 
 ## About CodeClan
 
