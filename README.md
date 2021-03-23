@@ -63,12 +63,14 @@ Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/codeclan/data_laptop_s
 
 This will navigate to your `Downloads` folder, temporarily allow Powershell to run external scripts, then download and run this script.
 
+[The Github Desktop application may open after it has been installed, but can be safely closed once the installer has finished.]
+
 At the end of the installation script, another script will run to check if any applications failed to install. You can repeat this by running the following lines in terminal:
 
 ```sh
 # This line will re-download the script - ensure you download it to the same folder as the setup script
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/codeclan/data_laptop_script/master/laptop_install_test -OutFile '.\codeclan_installation_test.ps1'
-# This line will re-run it. You can skip to this step if the script is already downloaded 
+# This line will re-run it. You can skip to this step if the script is already downloaded
 .\codeclan_installation_test
 ```
 

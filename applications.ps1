@@ -1,4 +1,8 @@
-﻿$installationList = @(
+﻿#
+# Applications required for CodeClan Data Analysis course
+#
+
+$installationList = @(
     @{
         Name = "Chrome"
         PackageName = "googlechrome"
