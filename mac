@@ -60,7 +60,7 @@ install_gui_app() {
 
   is_app_installed "$appName"
   if [ $? -eq 1 ]; then
-    brew cask install "$caskName"
+    brew install --cask "$caskName"
   fi
 }
 
@@ -116,8 +116,7 @@ esac
 
 if ! command -v brew >/dev/null; then
   fancy_echo "Installing Homebrew ..."
-    curl -fsS \
-      'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     append_to_zshrc '# recommended by brew doctor'
 
@@ -127,10 +126,19 @@ if ! command -v brew >/dev/null; then
     export PATH="/usr/local/bin:$PATH"
 fi
 
-if brew list | grep -Fq brew-cask; then
+if brew list --formula | grep -Fq brew-cask; then
   fancy_echo "Uninstalling old Homebrew-Cask ..."
   brew uninstall --force brew-cask
 fi
+
+fancy_echo "Updating Homebrew formulae ..."
+brew update
+brew bundle --file=- <<EOF
+tap "homebrew/services"
+tap "homebrew/cask-fonts"
+
+# Set permissions for installing from `brew bundle`
+sudo chown -R $(whoami) /usr/local/lib/pkgconfig /usr/local/share/info /use/local/share/man/man3 /use/local/share/man/man5
 
 
 fancy_echo "Downloading the R language"
@@ -150,14 +158,6 @@ jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home
 jenv versions
 R CMD javareconf
 
-# Set permissions for installing from `brew bundle`
-sudo chown -R $(whoami) /usr/local/lib/pkgconfig /usr/local/share/info /use/local/share/man/man3 /use/local/share/man/man5
-
-fancy_echo "Updating Homebrew formulae ..."
-brew update
-brew bundle --file=- <<EOF
-tap "homebrew/services"
-tap "caskroom/fonts"
 
 # Unix
 brew "git"
@@ -168,7 +168,7 @@ brew "node"
 brew "postgres", restart_service: true
 
 # Fonts
-cask "font-opendyslexic"
+cask "font-open-dyslexic"
 EOF
 
 fancy_echo "Installing Oh-My-Zsh ..."
