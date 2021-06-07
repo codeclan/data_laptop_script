@@ -57,7 +57,7 @@ Copy the following lines into the window which opens:
 ```sh
 cd ~\Downloads ;
 Set-ExecutionPolicy Bypass -Scope Process -Force ;
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/codeclan/data_laptop_script/master/windows.ps1' -OutFile '.\codeclan_script' ;
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/codeclan/data_laptop_script/master/windows.ps1' -OutFile '.\codeclan_script.ps1' ;
 .\codeclan_script
 ```
 
