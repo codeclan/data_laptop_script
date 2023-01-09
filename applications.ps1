@@ -36,10 +36,6 @@ $installationList = @(
         PackageName = "insomnia-rest-api-client"
     },
     @{
-        Name = "Atom"
-        PackageName = "atom"
-    },
-    @{
         Name = "Anaconda"
         PackageName = "anaconda3"
     },
