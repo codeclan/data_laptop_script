@@ -45,15 +45,6 @@ function Install-FromChocolately {
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/codeclan/data_laptop_script/master/applications.ps1" -OutFile "codeclan_applications.ps1"
 . .\codeclan_applications.ps1
 
-
-# R installation - needs specific version
-
-Write-Output "Installing R..."
-
-choco install r --version 3.6.0 -y -r
-
-
-
 # App installation
 
 $installationList | foreach {
@@ -62,6 +53,11 @@ $installationList | foreach {
 
 }
 
+Write-Output "Installing R..."
+choco install r
+
+Write-Output "Installing Quarto..."
+choco install quarto
 
 
 # refreshenv to add Java to PATH

@@ -87,7 +87,6 @@ is_gui_app_installed() {
 GUI_APPS=(
   "R"
   "google chrome"
-  "atom"
   "slack"
   "insomnia"
   "macdown"

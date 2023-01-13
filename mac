@@ -64,16 +64,6 @@ install_gui_app() {
   fi
 }
 
-# Check for Terminal running in ARM mode, install Rosetta, exit script
-ARCH=$(arch)
-if [[ "$ARCH" == "arm64" ]]; then
-    /usr/sbin/softwareupdate --install-rosetta --agree-to-license
-    fancy_echo "\e[1;34m *** CodeClan - \e[1;31mAdditional manual steps required please visit - \033[0m"
-    fancy_echo "https://github.com/codeclan/laptop/blob/master/apple_silicon.md"
-    fancy_echo ""
-    exit 0
-fi
-
 # Check for Xcode Devtools and wait for them to be installed before continuing
 xcode-select -p 2>/dev/null
 return_code=$?
@@ -142,9 +132,11 @@ tap "homebrew/cask-fonts"
 # Set permissions for installing from `brew bundle`
 sudo chown -R $(whoami) /usr/local/lib/pkgconfig /usr/local/share/info /use/local/share/man/man3 /use/local/share/man/man5
 
-
 fancy_echo "Downloading the R language"
-curl -0 'https://cran.r-project.org/bin/macosx/R-3.6.0.pkg' > ./r_lang.pkg
+cask "r"
+
+fancy_echo "Downloading Quarto CLI"
+cask "quarto"
 
 fancy_echo "Installing the R language"
 sudo installer -pkg r_lang.pkg -target /
@@ -187,7 +179,6 @@ install_gui_app "google chrome" "google-chrome"
 install_gui_app "navicat data modeler essentials" "navicat-data-modeler-essentials"
 
 # Text editing
-install_gui_app "atom" "atom"
 
 # Chat
 install_gui_app "slack" "slack"
@@ -216,8 +207,6 @@ if [ -f "$HOME/.laptop.local" ]; then
   . "$HOME/.laptop.local"
 fi
 
-fancy_echo "Setting Atom as default text editor ..."
-append_to_zshrc "export EDITOR='atom -nw'"
 append_to_zshrc "export PAGER='less -f'"
 
 fancy_echo "Rebinding # to the § key"

@@ -24,8 +24,16 @@ $installationList = @(
         PackageName = "github-desktop"
     },
     @{
+        Name = "R"
+        PackageName = "r.project"
+    },
+    @{
         Name = "RStudio"
         PackageName = "r.studio"
+    },
+    @{
+        Name = "Quarto"
+        PackageName = "quarto"
     },
     @{
         Name = "DBeaver"
